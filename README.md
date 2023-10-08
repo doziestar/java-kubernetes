@@ -12,6 +12,11 @@ This application provides endpoints to create, read, update, and delete restaura
 5. [Contributing](#contributing)
 6. [License](#license)
 
+### Help:
+```bash
+ make help
+```
+
 ### Requirements
 
 1. Java 11+
@@ -63,13 +68,13 @@ You can now access:
 1. Make sure you have Docker installed and running.
 2. Build the Docker image from the project root:
 ```bash
-$ docker build -t java-kubernetes .
+$ make build IMAGE_NAME=app
 ```
 
 ### Running the Docker Image:
 Run the Docker image:
 ```bash
-$ docker run -p 8080:8080 java-kubernetes
+$ make run IMAGE_NAME=app
 ```
 
 ## Kubernetes Deployment
@@ -78,17 +83,17 @@ $ docker run -p 8080:8080 java-kubernetes
 1. Ensure you have a running Kubernetes cluster and kubectl installed.
 2. Deploy the application:
 ```bash
-$ kubectl apply -f kubernetes/deployment.yaml
+$ make deploy
 ```
 3. Expose the application:
 ```bash
-$ kubectl apply -f kubernetes/service.yaml
+$ make service
 ```
 
 ### Accessing the Application:
 1. Get the URL of the application:
 ```bash
-$ minikube service java-kubernetes --url
+$ make url
 ```
 2. Access the application at the URL.
 3. Access the H2 console at http://localhost:8080/h2-console.

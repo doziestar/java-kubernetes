@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: restaurant-api-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: restaurant-api
+  template:
+    metadata:
+      labels:
+        app: restaurant-api
+    spec:
+      containers:
+        - name: restaurant-api
+          image: restaurant-api:latest
+          ports:
+            - containerPort: 8080
